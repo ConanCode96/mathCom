@@ -68,7 +68,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 3 ".\\parser.y"
+#line 3 "parser.y"
 
 #include<math.h>
 #include <stdio.h>
@@ -1098,47 +1098,47 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 23 ".\\parser.y"
-    { printf("%.10g\n", (yyvsp[-1])); ;}
+#line 23 "parser.y"
+    { printf("The result is = %.10g\n", (yyvsp[-1])); ;}
     break;
 
   case 5:
-#line 28 ".\\parser.y"
+#line 28 "parser.y"
     {(yyval) = (yyvsp[0]);;}
     break;
 
   case 6:
-#line 29 ".\\parser.y"
-    {(yyval) = (yyvsp[0]); printf("%.10g\n", (yyvsp[0]));;}
+#line 29 "parser.y"
+    {(yyval) = (yyvsp[0]);;}
     break;
 
   case 7:
-#line 30 ".\\parser.y"
+#line 30 "parser.y"
     {(yyval)=(yyvsp[-2]) + (yyvsp[0]);;}
     break;
 
   case 8:
-#line 31 ".\\parser.y"
+#line 31 "parser.y"
     {(yyval)=(yyvsp[-2]) - (yyvsp[0]);;}
     break;
 
   case 9:
-#line 32 ".\\parser.y"
+#line 32 "parser.y"
     {(yyval) = (yyvsp[-2]) * (yyvsp[0]);;}
     break;
 
   case 10:
-#line 33 ".\\parser.y"
+#line 33 "parser.y"
     {(yyval) = (yyvsp[-2]) / (yyvsp[0]);;}
     break;
 
   case 11:
-#line 34 ".\\parser.y"
+#line 34 "parser.y"
     {(yyval) = pow((yyvsp[-2]), (yyvsp[0]));;}
     break;
 
   case 12:
-#line 35 ".\\parser.y"
+#line 35 "parser.y"
     {(yyval) = (yyvsp[-1]);;}
     break;
 
@@ -1415,7 +1415,7 @@ yyreturn:
 }
 
 
-#line 38 ".\\parser.y"
+#line 38 "parser.y"
 
 
 /* SUBROUTINES SECTION */
@@ -1430,4 +1430,5 @@ int main(void)
     yyparse();
     return 0;
 }
+
 
