@@ -368,11 +368,14 @@ char *yytext;
 #define INITIAL 0
 /* DEFINITONS SECTION */
 #line 5 ".\\lexer.l"
+// #ifndef YYSTYPE
+#define YYSTYPE double
+// #endif
 #include <stdio.h>
 #include "parser.tab.h"
 /* substitutions */
 /* RULES Section */
-#line 376 "lex.yy.c"
+#line 379 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -523,10 +526,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 17 ".\\lexer.l"
+#line 20 ".\\lexer.l"
 
     
-#line 530 "lex.yy.c"
+#line 533 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -611,7 +614,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 19 ".\\lexer.l"
+#line 22 ".\\lexer.l"
 {
             yylval = strtol(yytext, NULL, 0);
             printf("read token ");
@@ -622,7 +625,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 27 ".\\lexer.l"
+#line 30 ".\\lexer.l"
 {
             yylval = strtod(yytext, 0);
             printf("read token ");
@@ -633,7 +636,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 35 ".\\lexer.l"
+#line 38 ".\\lexer.l"
 {
             yylval = *yytext; /* one character */
             printf("read token ");
@@ -644,7 +647,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 43 ".\\lexer.l"
+#line 46 ".\\lexer.l"
 {
             printf("read token ");
             ECHO;
@@ -653,15 +656,15 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 49 ".\\lexer.l"
+#line 52 ".\\lexer.l"
 yyerror("invalid character");
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 52 ".\\lexer.l"
+#line 55 ".\\lexer.l"
 ECHO;
 	YY_BREAK
-#line 665 "lex.yy.c"
+#line 668 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1547,7 +1550,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 52 ".\\lexer.l"
+#line 55 ".\\lexer.l"
 
 
 

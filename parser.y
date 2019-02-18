@@ -1,7 +1,11 @@
 
 /* DEFINITIONS SECTION */
 %{
+#include<math.h>
 #include <stdio.h>
+#ifndef YYSTYPE
+#define YYSTYPE double
+#endif
 %}
 
 %token INTEGER
@@ -9,18 +13,20 @@
 
 /* associtiviy for each operator, precedence is in INCREASING order */
 
-%right '-' '+' 
-%right '*' '/'
+%left '-' '+' 
+%left '*' '/'
 %right '^'
 
 /* GRAMMAR RULES SECTION */
 %%
 program:
-        program expr '\n' { printf("%d\n", $2); }
+        program expr '\n' { printf("%.10g\n", $2); }
+        |'\n' program
         |
         ;
 expr:
     INTEGER {$$ = $1;}
+    |FLOATING_NUMBER {$$ = $1; printf("%.10g\n", $1);}
     |expr'+'expr {$$=$1 + $3;}
     |expr'-'expr {$$=$1 - $3;}
     |expr'*'expr {$$ = $1 * $3;}

@@ -2,6 +2,9 @@
     /* DEFINITONS SECTION */
 
 %{
+// #ifndef YYSTYPE
+#define YYSTYPE double
+// #endif
 #include <stdio.h>
 #include "parser.tab.h"
 %}
