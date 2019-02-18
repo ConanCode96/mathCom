@@ -295,8 +295,8 @@ static yyconst int yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    2,    3,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    4,    5,    1,    5,    6,    1,    7,    7,    7,
+        1,    2,    1,    1,    1,    1,    1,    1,    1,    2,
+        2,    4,    5,    1,    5,    6,    4,    7,    7,    7,
         7,    7,    7,    7,    7,    7,    7,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    8,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -613,42 +613,55 @@ case 1:
 YY_RULE_SETUP
 #line 19 ".\\lexer.l"
 {
-            yylval = strtol(yytext);
+            yylval = strtol(yytext, NULL, 0);
+            printf("read token ");
+            ECHO;
+            puts("");
             return INTEGER;
         }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 24 ".\\lexer.l"
+#line 27 ".\\lexer.l"
 {
-            yylval = strtod(yytext);
+            yylval = strtod(yytext, 0);
+            printf("read token ");
+            ECHO;
+            puts("");
             return FLOATING_NUMBER;
         }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 29 ".\\lexer.l"
+#line 35 ".\\lexer.l"
 {
             yylval = *yytext; /* one character */
+            printf("read token ");
+            ECHO;
+            puts("");
             return *yytext;
         }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 34 ".\\lexer.l"
-; /* skip whitespaces */
+#line 43 ".\\lexer.l"
+{
+            printf("read token ");
+            ECHO;
+            puts("");
+        }; /* skip whitespaces */
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 36 ".\\lexer.l"
+#line 49 ".\\lexer.l"
 yyerror("invalid character");
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 39 ".\\lexer.l"
+#line 52 ".\\lexer.l"
 ECHO;
 	YY_BREAK
-#line 652 "lex.yy.c"
+#line 665 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1534,7 +1547,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 39 ".\\lexer.l"
+#line 52 ".\\lexer.l"
 
 
 

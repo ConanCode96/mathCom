@@ -17,23 +17,34 @@ FLOAT {DIGIT}+\.{DIGIT}*([eE][-+]?{DIGIT}+)?
 %%  /*delimiters of the sections*
     
 {DIGIT}+ {
-            yylval = strtol(yytext);
+            yylval = strtol(yytext, NULL, 0);
+            printf("read token ");
             ECHO;
+            puts("");
             return INTEGER;
         }
 
 {FLOAT} {
-            yylval = strtod(yytext);
+            yylval = strtod(yytext, 0);
+            printf("read token ");
             ECHO;
+            puts("");
             return FLOATING_NUMBER;
         }
 
-[-+*^\n]    {
+[-+*/^\n]    {
             yylval = *yytext; /* one character */
+            printf("read token ");
+            ECHO;
+            puts("");
             return *yytext;
         }
 
-[ \t]   ; /* skip whitespaces */
+[( )\t]   {
+            printf("read token ");
+            ECHO;
+            puts("");
+        }; /* skip whitespaces */
 
 .       yyerror("invalid character");
 
