@@ -1,4 +1,4 @@
-# MathCom
+# MathCom :heart_eyes:
 > __A compiler for nested multi mathematical operations (Addition, Subtraction, multiplication, division, exponentiation)__
 
 ### Milestones
