@@ -8,7 +8,7 @@
 - [x] added support for floating point operations
 - [x] added hexadecimal support
 - [ ] parentheses precedence adjustment
-- [ ] __3__ unknown shift/reduce conflicts from GNU::Bison
+- [ ] __3__ unresolved shift/reduce conflicts from GNU::Bison
 
 ### Steps to reproduce
   1. ``` flex lexer.l ```
